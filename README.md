@@ -64,15 +64,8 @@ In order to draw a single line on the left and right lanes, I modified the draw_
 
 
 ###2. Identify potential shortcomings with your current pipeline
-My pipeline does a
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
+My pipeline does a fairly good job in detecting lane lines. However, the algorithm does not take into consideration the points in the middle but the 2 points that make the longest distance for a detected lane line. As a result, the algorithm may fail to create a smooth line if there is a sharp curve ahead. 
 
 
 ###3. Suggest possible improvements to your pipeline
-
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
+I need to consider all lines detected by using each line length as weight, then calculate the average slopes for the positive lines and the negative lines. I also need to calculate the b values (y = mx + b) for the negatives slopes and the positive slopes, but I do not know how to get the y and x value so that I can calculate the b value.
