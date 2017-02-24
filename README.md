@@ -15,7 +15,7 @@ In this project, I applied the knowledge I learned from Udacity such as OpenCV, 
 My pipeline consisted of 7 steps:
 
 First, I use thresholds to filter image such that yellow lines and white lines are kept, and other areas are converted to black color. 
-![Filter color](https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/1colorfilter.png "filter color" =350x)
+![Filter color](https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/1colorfilter.png =350x "filter color")
 
 Next I convert the images to grayscale with only one color channel. 
 ![Grayscale](https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/2grayscale.png "grayscale")
