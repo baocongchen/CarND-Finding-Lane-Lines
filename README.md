@@ -16,31 +16,45 @@ My pipeline consisted of 7 steps:
 
 First, I use thresholds to filter image such that yellow lines and white lines are kept, and other areas are converted to black color. 
 
-<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/1colorfilter.png" style="display: block; margin-left: auto; margin-right: auto;" width="450" alt="Filter color">
+<p align="center">
+<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/1colorfilter.png" width="450" alt="Filter color">
+</p>
 
 Next I convert the images to grayscale with only one color channel. 
 
-<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/2grayscale.png" style="display: block; margin-left: auto; margin-right: auto;" width="450" alt="Grayscale">
+<p align="center">
+<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/2grayscale.png" width="450" alt="Grayscale">
+</p>
 
 I define a kernel size and apply Gaussian smoothing to suppress noise and spurious gradients, thereby smoothing the edges. 
 
-<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/3smoothed_image.png" style="display: block; margin-left: auto; margin-right: auto;" width="450" alt="Smooth image">
+<p align="center">
+<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/3smoothed_image.png" width="450" alt="Smooth image">
+</p>
 
 Then, I apply canny function to find the edges of the lane lines. 
 
-<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/4edges.png" style="display: block; margin-left: auto; margin-right: auto;" width="450" alt="Create edges">
+<p align="center">
+<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/4edges.png" width="450" alt="Create edges">
+</p>
 
 I create a polygon mask to choose my region of interest, thereby filtering out area that does not contribute to the detection of lane lines. 
 
-<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/5masked_edges_img.png" style="display: block; margin-left: auto; margin-right: auto;" width="450" alt="Mask edges">
+<p align="center">
+<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/5masked_edges_img.png" width="450" alt="Mask edges">
+</p>
 
 I define parameters and apply Hough Transform to identify lane  from canny edges. 
 
-<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/6lines.png" style="display: block; margin-left: auto; margin-right: auto;" width="450" alt="Draw lines">
+<p align="center">
+<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/6lines.png" width="450" alt="Draw lines">
+</p>
 
 Finally, I make the lines semi-transparent by applying the addWeighted function.
 
-<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/7lines_edges.png" style="display: block; margin-left: auto; margin-right: auto;" width="450" alt="Add weight">
+<p align="center">
+<img src="https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/pipeline_images/7lines_edges.png" width="450" alt="Add weight">
+</p>
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by doing the following steps:
 - Divide lines into 2 groups: negative group whose slopes are smaller than -0.4 and positive group whose slopes are larger than 0.4
