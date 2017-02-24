@@ -6,7 +6,7 @@ In this project, I applied the knowledge I learned from Udacity such as OpenCV, 
 
 [//]: # (Image References)
 
-[image1]: ./examples/grayscale.jpg "Grayscale"
+[image1]: ./examples/Udacity-Self-Driving-Car.jpg "Udacity self-driving car"
 
 ---
 
@@ -14,7 +14,28 @@ In this project, I applied the knowledge I learned from Udacity such as OpenCV, 
 
 ###1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 7 steps. First, I use thresholds to filter image such that yellow lines and white lines are kept, and other areas are converted to black color. Next I convert the images to grayscale with only one color channel. I define a kernel size and apply Gaussian smoothing to suppress noise and spurious gradients, thereby smoothing the edges. Then, I apply canny function to find the edges of the lane lines. I create a polygon mask to choose my region of interest, thereby filtering out area that does not contribute to the detection of lane lines. I define parameters and apply Hough Transform to identify lane  from canny edges. Finally, I make the lines semi-transparent by applying the addWeighted function.
+My pipeline consisted of 7 steps:
+
+First, I use thresholds to filter image such that yellow lines and white lines are kept, and other areas are converted to black color. 
+[image1]: ./pipeline_images/1colorfilter.png "filter color"
+
+Next I convert the images to grayscale with only one color channel. 
+[image1]: ./pipeline_images/2grayscale.png "grayscale"
+
+I define a kernel size and apply Gaussian smoothing to suppress noise and spurious gradients, thereby smoothing the edges. 
+[image1]: ./pipeline_images/3smoothed_image.png "smooth image"
+
+Then, I apply canny function to find the edges of the lane lines. 
+[image1]: ./pipeline_images/4edges.png "create edges"
+
+I create a polygon mask to choose my region of interest, thereby filtering out area that does not contribute to the detection of lane lines. 
+[image1]: ./pipeline_images/5masked_edges_img.png "mask edges"
+
+I define parameters and apply Hough Transform to identify lane  from canny edges. 
+[image1]: ./pipeline_images/6lines.png "draw lines"
+
+Finally, I make the lines semi-transparent by applying the addWeighted function.
+[image1]: ./pipeline_images/7lines_edges.png "add weight"
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by doing the following steps:
 - Divide lines into 2 groups: negative group whose slopes are smaller than -0.4 and positive group whose slopes are larger than 0.4
