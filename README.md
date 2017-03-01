@@ -2,6 +2,7 @@
 This is the first project in Udacity Self-driving Car Nanodegree program. The goals of this project are the following:
 * Make a pipeline that finds lane lines on the road
 * Reflect on your work in a written report
+
 In this project, I applied the knowledge I learned from Udacity such as OpenCV, Hough Transform to detect lane lines and draw lines. The project was challenging because I did not have experience with OpenCV.
 
 ![Udacity Self-driving Car](https://github.com/baocongchen/carnd-finding-lane-lines/blob/master/examples/Udacity-Self-Driving-Car.jpg "Udacity self-driving car")
